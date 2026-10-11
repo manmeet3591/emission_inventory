@@ -1,0 +1,11 @@
+# imagery is licensed (Planet/CSDA, NRSC, Maxar) — never commit it
+data/raw/
+data/tiles/
+outputs/
+*.tif
+*.jp2
+*.zip
+*.pt
+.env
+__pycache__/
+.DS_Store

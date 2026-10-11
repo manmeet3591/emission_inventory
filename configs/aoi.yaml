@@ -1,0 +1,25 @@
+# Areas of interest. bbox = [min_lon, min_lat, max_lon, max_lat] (EPSG:4326)
+grid_res_m: 300
+
+aois:
+  delhi_ncr:
+    bbox: [76.80, 28.20, 77.70, 28.95]   # NCT Delhi + Gurugram, Noida, Ghaziabad, Faridabad
+    grid_crs: EPSG:32643
+    notes: kiln belt extends further east/south (Baghpat, Jhajjar, Palwal) — widen once pipeline works
+  delhi_kiln_belt:
+    bbox: [76.40, 28.00, 77.90, 29.30]
+    grid_crs: EPSG:32643
+  us_permian:
+    bbox: [-104.0, 31.0, -101.5, 33.0]   # oil & gas pads, flares, compressors
+    grid_crs: EPSG:5070
+  us_la_basin:
+    bbox: [-118.70, 33.60, -117.60, 34.30]  # refineries, ports, logistics, traffic
+    grid_crs: EPSG:5070
+  us_central_valley:
+    bbox: [-120.6, 35.8, -119.0, 37.0]   # dairies/CAFOs, agriculture
+    grid_crs: EPSG:5070
+
+dates:
+  # Delhi: kiln firing season Nov–Jun, stubble burning Oct–Nov
+  delhi_ncr: ["2025-11-01", "2026-06-30"]
+  default: ["2025-10-01", "2026-09-30"]

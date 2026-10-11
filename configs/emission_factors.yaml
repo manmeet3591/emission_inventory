@@ -1,0 +1,11 @@
+# Per-class activity and emission factors. Fill from the ef_source cited in taxonomy.yaml.
+# Values intentionally left null — do not use placeholders in results.
+# Schema:
+# <class>:
+#   activity_per_unit: <activity units per detection (or per m2 / per vehicle / per m)>
+#   state_multiplier: {active_plume: 1.0, idle: 0.0, ...}
+#   ef: {CO2: <kg per activity unit>, PM2_5: ..., BC: ...}
+brick_kiln_fcbtk:
+  activity_per_unit: null   # e.g. bricks/yr or t coal/yr per kiln
+  state_multiplier: {active_plume: 1.0, active_no_plume: 1.0, idle: 0.0, abandoned: 0.0}
+  ef: {}

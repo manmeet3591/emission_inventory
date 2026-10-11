@@ -1,0 +1,9 @@
+requests
+pyyaml
+numpy
+pyproj
+rasterio
+shapely
+geopandas
+ultralytics
+torch

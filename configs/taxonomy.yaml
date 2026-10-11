@@ -1,0 +1,55 @@
+# Emission-relevant object taxonomy.
+# activity: how a detection is turned into an activity rate (see src/inventory/grid300.py)
+# ef_source: where emission factors come from — fill numbers from these, do not invent them.
+# min_gsd_m: coarsest GSD at which the object is reliably visible.
+
+classes:
+  # --- Industry ---
+  brick_kiln_fcbtk:     {sector: industry, region: [IN], activity: per_unit,  min_gsd_m: 3.0, ef_source: "Weyant et al. 2014 ES&T; Rajarathnam et al. 2014"}
+  brick_kiln_zigzag:    {sector: industry, region: [IN], activity: per_unit,  min_gsd_m: 3.0, ef_source: "Weyant et al. 2014 ES&T"}
+  brick_kiln_clamp:     {sector: industry, region: [IN], activity: per_area,  min_gsd_m: 1.0, ef_source: "Weyant et al. 2014 ES&T"}
+  stone_crusher:        {sector: industry, region: [IN], activity: per_unit,  min_gsd_m: 1.0, ef_source: "CPCB / AP-42 11.19.2"}
+  steel_rerolling_mill: {sector: industry, region: [IN], activity: per_area,  min_gsd_m: 1.0, ef_source: "GAINS-India / TERI"}
+  cement_plant:         {sector: industry, region: [IN, US], activity: facility, min_gsd_m: 3.0, ef_source: "AP-42 11.6; GHGRP"}
+  power_plant_coal:     {sector: energy, region: [IN, US], activity: facility, min_gsd_m: 3.0, ef_source: "GPPD capacity + CEA/EIA generation"}
+  refinery:             {sector: energy, region: [IN, US], activity: facility, min_gsd_m: 3.0, ef_source: "GHGRP / NEI point"}
+  # --- Combustion & waste ---
+  crematorium_wood:     {sector: waste, region: [IN], activity: per_unit,  min_gsd_m: 0.5, ef_source: "Delhi emission inventory studies (e.g. IIT-K 2016)"}
+  crematorium_electric: {sector: waste, region: [IN], activity: per_unit,  min_gsd_m: 0.5, ef_source: "~0 direct"}
+  landfill:             {sector: waste, region: [IN, US], activity: per_area, min_gsd_m: 3.0, ef_source: "IPCC 2006 FOD; GHGRP subpart HH"}
+  landfill_fire:        {sector: waste, region: [IN], activity: per_area,  min_gsd_m: 3.0, ef_source: "Akagi et al. 2011"}
+  open_burning_patch:   {sector: waste, region: [IN], activity: per_area,  min_gsd_m: 0.5, ef_source: "Akagi et al. 2011"}
+  crop_residue_burn_scar: {sector: agriculture, region: [IN], activity: per_area, min_gsd_m: 3.0, ef_source: "Akagi et al. 2011; Jain et al. 2014"}
+  # --- Transport ---
+  truck_parking_hub:    {sector: transport, region: [IN, US], activity: count_vehicles, min_gsd_m: 0.5, ef_source: "COPERT / MOVES idling EF"}
+  bus_depot:            {sector: transport, region: [IN, US], activity: count_vehicles, min_gsd_m: 0.5, ef_source: "COPERT / MOVES"}
+  rail_yard:            {sector: transport, region: [IN, US], activity: per_area, min_gsd_m: 1.0, ef_source: "EPA locomotive EF"}
+  aircraft_parked:      {sector: transport, region: [IN, US], activity: count_vehicles, min_gsd_m: 0.5, ef_source: "ICAO LTO cycle"}
+  ship_anchored:        {sector: transport, region: [US], activity: count_vehicles, min_gsd_m: 3.0, ef_source: "EPA port inventory guidance"}
+  # --- Dust / built env ---
+  construction_site:    {sector: dust, region: [IN, US], activity: per_area, min_gsd_m: 1.0, ef_source: "AP-42 13.2.3"}
+  unpaved_road:         {sector: dust, region: [IN, US], activity: per_length, min_gsd_m: 1.0, ef_source: "AP-42 13.2.2"}
+  aggregate_stockpile:  {sector: dust, region: [IN, US], activity: per_area, min_gsd_m: 1.0, ef_source: "AP-42 13.2.4"}
+  # --- Distributed combustion (out-of-the-box) ---
+  diesel_genset_cluster: {sector: residential_commercial, region: [IN], activity: per_unit, min_gsd_m: 0.3, ef_source: "CPCB DG EF"}
+  tandoor_dhaba_cluster: {sector: residential_commercial, region: [IN], activity: per_unit, min_gsd_m: 0.3, ef_source: "Delhi inventory studies"}
+  datacenter_gensets:   {sector: commercial, region: [US, IN], activity: per_unit, min_gsd_m: 0.5, ef_source: "permit limits (state air agencies)"}
+  # --- Agriculture / CH4 ---
+  dairy_colony:         {sector: agriculture, region: [IN], activity: per_area, min_gsd_m: 1.0, ef_source: "IPCC 2019 Tier 1 enteric + manure"}
+  cafo_feedlot:         {sector: agriculture, region: [US], activity: per_area, min_gsd_m: 1.0, ef_source: "EPA GHG inventory"}
+  manure_lagoon:        {sector: agriculture, region: [US], activity: per_area, min_gsd_m: 3.0, ef_source: "EPA GHG inventory"}
+  wastewater_plant:     {sector: waste, region: [IN, US], activity: facility, min_gsd_m: 1.0, ef_source: "IPCC 2019 ch.6"}
+  # --- Oil & gas (US) ---
+  well_pad:             {sector: oil_gas, region: [US], activity: per_unit, min_gsd_m: 3.0, ef_source: "EPA GHGI; Permian aerial surveys"}
+  flare_stack:          {sector: oil_gas, region: [US], activity: per_unit, min_gsd_m: 0.5, ef_source: "VIIRS Nightfire volumes"}
+  tank_battery:         {sector: oil_gas, region: [US], activity: per_unit, min_gsd_m: 0.5, ef_source: "EPA GHGI"}
+  compressor_station:   {sector: oil_gas, region: [US], activity: facility, min_gsd_m: 1.0, ef_source: "GHGRP subpart W"}
+
+# Activity-state attributes predicted by an auxiliary head (multiply EF)
+states:
+  brick_kiln_*:    [active_plume, active_no_plume, idle, abandoned]
+  crematorium_*:   [active_smoke, idle]
+  landfill:        [fire_visible, no_fire]
+  construction_site: [earthworks, structure, finished]
+
+species: [CO2, CO, PM2_5, PM10, BC, OC, SO2, NOx, CH4, NMVOC]
