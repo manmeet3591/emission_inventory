@@ -9,3 +9,6 @@ outputs/
 .env
 __pycache__/
 .DS_Store
+.venv/
+data/labelstudio/
+weights/

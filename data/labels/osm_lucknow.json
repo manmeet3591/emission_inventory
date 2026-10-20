@@ -1,0 +1,330 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-18T03:54:21Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "way",
+  "id": 101225505,
+  "center": {
+    "lat": 26.8203856,
+    "lon": 80.9045804
+  },
+  "tags": {
+    "landuse": "industrial",
+    "name": "Internal Street"
+  }
+},
+{
+  "type": "way",
+  "id": 101225597,
+  "center": {
+    "lat": 26.8247628,
+    "lon": 80.9031759
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 209277955,
+  "center": {
+    "lat": 26.7608731,
+    "lon": 80.8929674
+  },
+  "tags": {
+    "aeroway": "aerodrome",
+    "alt_name": "Lucknow Amausi Airport",
+    "iata": "LKO",
+    "icao": "VILK",
+    "is_in": "Lucknow",
+    "is_in:country": "India",
+    "name": "Chaudhary Charan Singh International Airport",
+    "name:ar": "مطار تشودري تشاران سينغ الدولي",
+    "name:etymology:wikidata": "Q319824",
+    "name:fa": "فرودگاه اماوسی",
+    "name:hi": "चौधरी चरण सिंह अंतर्राष्ट्रीय हवाई अड्डा",
+    "name:kn": "ಚೌದರಿಚರಣ್ ಸಿಂಗ್ ಇಂಟರ್‌ನ್ಯಾಶನಲ್ ಏರ್‌ಪೋರ್ಟ್",
+    "name:ml": "ചൗധരി ചരൺ സിംഗ് അന്താരാഷ്ട്ര വിമാനത്താവളം",
+    "wikidata": "Q2672666",
+    "wikipedia": "en:Chaudhary Charan Singh International Airport"
+  }
+},
+{
+  "type": "way",
+  "id": 209278333,
+  "center": {
+    "lat": 26.7782730,
+    "lon": 80.8920254
+  },
+  "tags": {
+    "landuse": "industrial",
+    "name": "Transport Nagar"
+  }
+},
+{
+  "type": "way",
+  "id": 209432852,
+  "center": {
+    "lat": 26.8231540,
+    "lon": 80.9109822
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 214848691,
+  "center": {
+    "lat": 26.7769367,
+    "lon": 80.8633671
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 214848692,
+  "center": {
+    "lat": 26.7682898,
+    "lon": 80.8680466
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 214848693,
+  "center": {
+    "lat": 26.7704480,
+    "lon": 80.8722925
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 214848694,
+  "center": {
+    "lat": 26.7774879,
+    "lon": 80.8678318
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 214848696,
+  "center": {
+    "lat": 26.7764675,
+    "lon": 80.8676764
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 214848697,
+  "center": {
+    "lat": 26.7739551,
+    "lon": 80.8675238
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 214848698,
+  "center": {
+    "lat": 26.7647630,
+    "lon": 80.8716705
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 217789459,
+  "center": {
+    "lat": 26.7687122,
+    "lon": 80.8359389
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 217851355,
+  "center": {
+    "lat": 26.7667455,
+    "lon": 80.8408169
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 217851356,
+  "center": {
+    "lat": 26.7301932,
+    "lon": 80.8477543
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 217851357,
+  "center": {
+    "lat": 26.7313916,
+    "lon": 80.8494631
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 217851358,
+  "center": {
+    "lat": 26.7686100,
+    "lon": 80.8386948
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 217851359,
+  "center": {
+    "lat": 26.7363414,
+    "lon": 80.8518958
+  },
+  "tags": {
+    "landuse": "industrial"
+  }
+},
+{
+  "type": "way",
+  "id": 643401664,
+  "center": {
+    "lat": 26.7823670,
+    "lon": 80.8831907
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Lucknow Metro Depot",
+    "plant:source": "solar",
+    "power": "plant"
+  }
+},
+{
+  "type": "way",
+  "id": 927998046,
+  "center": {
+    "lat": 26.8193200,
+    "lon": 80.9068497
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "Alambagh Bus Station",
+    "operator": "UPSRTC",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "way",
+  "id": 1271226418,
+  "center": {
+    "lat": 26.7223261,
+    "lon": 80.8345360
+  },
+  "tags": {
+    "landuse": "construction"
+  }
+},
+{
+  "type": "way",
+  "id": 1271226420,
+  "center": {
+    "lat": 26.7653252,
+    "lon": 80.8776424
+  },
+  "tags": {
+    "landuse": "construction"
+  }
+},
+{
+  "type": "way",
+  "id": 1360909049,
+  "center": {
+    "lat": 26.7638357,
+    "lon": 80.8855919
+  },
+  "tags": {
+    "alt_name": "Lucknow Airport",
+    "bus": "yes",
+    "depot": "bus",
+    "industrial": "bus_depot",
+    "landuse": "industrial",
+    "name": "Lucknow Airport Bus Depot",
+    "name:en": "Lucknow Airport Bus Depot",
+    "note": "Prospective editors are encouraged to contact the surveyors prior to editing.",
+    "source": "Irasus Technologies Private Limited;JBM Green Energy Systems Private Limited"
+  }
+},
+{
+  "type": "way",
+  "id": 1456467031,
+  "center": {
+    "lat": 26.7996431,
+    "lon": 80.9047451
+  },
+  "tags": {
+    "amenity": "crematorium",
+    "name": "Sahara Cremation Ground"
+  }
+},
+{
+  "type": "way",
+  "id": 1519711149,
+  "center": {
+    "lat": 26.7251387,
+    "lon": 80.8383411
+  },
+  "tags": {
+    "landuse": "construction"
+  }
+},
+{
+  "type": "way",
+  "id": 1519711150,
+  "center": {
+    "lat": 26.7214081,
+    "lon": 80.8379226
+  },
+  "tags": {
+    "landuse": "construction"
+  }
+}
+
+  ]
+}

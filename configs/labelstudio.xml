@@ -1,0 +1,44 @@
+<View>
+  <Image name="image" value="$image" zoom="true" zoomControl="true" rotateControl="false"/>
+
+  <Header value="Objects (rotated box — R to rotate)"/>
+  <RectangleLabels name="obj" toName="image" canRotate="true" strokeWidth="2">
+    <Label value="brick_kiln" background="#d62728"/>
+    <Label value="chimney_stack" background="#8c564b"/>
+    <Label value="cooling_tower" background="#7f7f7f"/>
+    <Label value="storage_tank" background="#bcbd22"/>
+    <Label value="cremation_pyre" background="#ff7f0e"/>
+    <Label value="smoke_plume" background="#555555"/>
+    <Label value="stone_crusher" background="#9467bd"/>
+    <Label value="truck" background="#1f77b4"/>
+    <Label value="bus" background="#17becf"/>
+    <Label value="car" background="#aec7e8"/>
+    <Label value="aircraft" background="#2ca02c"/>
+    <Label value="locomotive" background="#98df8a"/>
+    <Label value="diesel_genset" background="#e377c2"/>
+    <Label value="cattle_shed" background="#c49c94"/>
+  </RectangleLabels>
+
+  <Header value="Area sources (polygon)"/>
+  <PolygonLabels name="area" toName="image" strokeWidth="2" opacity="0.25">
+    <Label value="landfill" background="#7b4173"/>
+    <Label value="open_burning" background="#e6550d"/>
+    <Label value="crop_burn_scar" background="#636363"/>
+    <Label value="construction_site" background="#fdae6b"/>
+    <Label value="aggregate_stockpile" background="#c7c7c7"/>
+    <Label value="truck_parking_hub" background="#3182bd"/>
+    <Label value="bus_depot" background="#6baed6"/>
+    <Label value="rail_yard" background="#31a354"/>
+    <Label value="crematorium_site" background="#fd8d3c"/>
+    <Label value="industrial_unit" background="#843c39"/>
+    <Label value="dairy_colony" background="#bd9e39"/>
+  </PolygonLabels>
+
+  <Header value="Attributes of the selected region"/>
+  <Choices name="kiln_type" toName="image" perRegion="true" whenLabelValue="brick_kiln" choice="single">
+    <Choice value="fcbtk_oval"/><Choice value="zigzag"/><Choice value="clamp"/><Choice value="unsure"/>
+  </Choices>
+  <Choices name="state" toName="image" perRegion="true" choice="single">
+    <Choice value="active_plume"/><Choice value="active_no_plume"/><Choice value="idle"/><Choice value="abandoned"/><Choice value="unsure"/>
+  </Choices>
+</View>

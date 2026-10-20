@@ -20,10 +20,20 @@ BUNDLES = {"PSScene": "analytic_sr_udm2", "SkySatCollect": "pansharpened_udm2"}
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
 
+def load_dotenv():
+    env = ROOT / ".env"
+    if env.exists():
+        for line in env.read_text().splitlines():
+            k, sep, v = line.partition("=")
+            if sep and not line.lstrip().startswith("#"):
+                os.environ.setdefault(k.strip(), v.strip().strip("'\""))
+
+
 def session():
+    load_dotenv()
     key = os.environ.get("PL_API_KEY")
     if not key:
-        raise SystemExit("Set PL_API_KEY (CSDA Planet key) in your environment.")
+        raise SystemExit("Set PL_API_KEY (CSDA Planet key) in emission_inventory/.env or your environment.")
     s = requests.Session()
     s.auth = (key, "")
     return s
@@ -88,16 +98,20 @@ def main():
     ap.add_argument("--limit", type=int, default=50)
     ap.add_argument("--search-only", action="store_true")
     ap.add_argument("--order", action="store_true")
+    ap.add_argument("--start")
+    ap.add_argument("--end")
+    ap.add_argument("--tag", default="", help="suffix for the output folder, e.g. archive")
     a = ap.parse_args()
 
     cfg = yaml.safe_load(open(ROOT / "configs/aoi.yaml"))
     geom = bbox_geom(cfg["aois"][a.aoi]["bbox"])
     start, end = cfg["dates"].get(a.aoi, cfg["dates"]["default"])
+    start, end = a.start or start, a.end or end
     s = session()
 
     feats = search(s, a.item_type, geom, start, end, a.max_cloud)
     feats.sort(key=lambda f: f["properties"].get("cloud_cover", 1))
-    out = ROOT / "data/raw/planet" / a.aoi / a.item_type
+    out = ROOT / "data/raw/planet" / a.aoi / (a.item_type + (f"_{a.tag}" if a.tag else ""))
     out.mkdir(parents=True, exist_ok=True)
     json.dump({"type": "FeatureCollection", "features": feats}, open(out / "search.geojson", "w"))
     print(f"{len(feats)} {a.item_type} scenes; footprints -> {out/'search.geojson'}")
