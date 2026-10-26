@@ -1,0 +1,1 @@
+- `labelstudio_kiln_task13.png` — Label Studio annotation of a brick kiln (rotated box, red) on Planet SkySat 0.5 m imagery, Loni/Muradnagar kiln belt, 24 Apr 2022 (task #13). Brick drying/moulding beds visible to the right and bottom-left.

@@ -1,0 +1,65 @@
+<div style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.45;max-width:900px">
+<h2>Labelling guide — Delhi SkySat pilot (0.5 m)</h2>
+<p><b>Golden rules.</b> (1) Only label what you can see. If unsure, choose <code>unsure</code> or skip — a wrong label hurts more than a missing one.
+(2) Submit chips with nothing in them as empty — that is useful data. (3) Work in the <b>prelabel_v0</b> tab so candidate boxes are already there; fix or delete them.
+(4) One chip ≈ 512 × 512 m. A car is ~8 px, a truck ~20 px, a kiln ~150–250 px long.</p>
+
+<h3>1. Brick kiln (<code>brick_kiln</code>, rotated box) — the main class</h3>
+<p><b>How to recognise one</b> — look for at least 3 of these:</p>
+<ul>
+<li><b>Shape:</b> a compact reddish/brown <b>rectangle or rounded oval</b>, roughly 80–150 m long and 25–50 m wide, standing alone in farmland or at a village edge.</li>
+<li><b>Colour:</b> red/orange/pink (fired brick and ash) — stands out against green or brown fields.</li>
+<li><b>Chimney:</b> a single tall stack, often seen as a <b>long thin dark shadow</b> pointing away from the sun, from the middle or one end of the kiln.</li>
+<li><b>Around it:</b> rows of thin white/light lines (green bricks drying), dug-up bare earth (clay pits), stacks of finished bricks, a few worker huts.</li>
+</ul>
+<p><b>Not a kiln:</b> sports grounds/running tracks (oval but green or bare, no chimney, no brick yard), factories with metal roofs (grey/blue, regular rooflines), water tanks, farm sheds.</p>
+<p><b>Box:</b> fit the box tightly around the kiln body (the brick structure), <i>not</i> the whole yard. Rotate to match its long side (press R or drag the rotate handle).</p>
+<table><tr>
+<td><img src="http://localhost:8081/guide/kiln_rect_1.jpg" width="200"><br><small>Rectangular kiln — likely <b>zigzag</b></small></td>
+<td><img src="http://localhost:8081/guide/kiln_rect_2.jpg" width="200"><br><small>Rectangular — likely zigzag</small></td>
+<td><img src="http://localhost:8081/guide/kiln_rect_3.jpg" width="200"><br><small>Rectangular — likely zigzag</small></td>
+<td><img src="http://localhost:8081/guide/kiln_oval.jpg" width="200"><br><small>Rounded oval ends — likely <b>FCBTK</b></small></td>
+</tr></table>
+<p><b>kiln_type:</b> <code>fcbtk_oval</code> = rounded/oval ends, like a running track. <code>zigzag</code> = sharp rectangular corners.
+<code>circular_cfcbk</code> = a round ring with the chimney in the middle (common around Lucknow).
+<code>clamp</code> = irregular heap of bricks with no permanent structure or chimney. If you can't tell: <code>unsure</code>.
+(Seed boxes came from a Sentinel-2 dataset; their kiln types are <b>not verified</b> — judge from the image.)</p>
+<p><b>state:</b> <code>active_plume</code> = visible smoke; <code>active_no_plume</code> = no smoke but fresh red colour and drying rows nearby;
+<code>idle</code> = intact but no drying rows, pale/faded; <code>abandoned</code> = broken down, overgrown or partly demolished; otherwise <code>unsure</code>.</p>
+
+<h3>2. Landfill (<code>landfill</code>, polygon)</h3>
+<p>Huge (hundreds of metres) mounds of dark grey/brown/multicoloured waste with <b>terraces, curving vehicle tracks and trucks</b> on top, in the middle of the city.
+Trace the outline of the waste mound by clicking points. Mark smoke on it as <code>smoke_plume</code> (box) and set state <code>active_plume</code>.</p>
+<table><tr>
+<td><img src="http://localhost:8081/guide/landfill_ghazipur.jpg" width="230"><br><small>Ghazipur (Jun 2022)</small></td>
+<td><img src="http://localhost:8081/guide/landfill_bhalswa.jpg" width="230"><br><small>Bhalswa (Nov 2021)</small></td>
+<td><img src="http://localhost:8081/guide/landfill_okhla.jpg" width="230"><br><small>Okhla (left edge; Apr 2021)</small></td>
+</tr></table>
+
+<h3>3. Vehicles and aircraft (rotated boxes)</h3>
+<p><code>truck</code>: rectangle ~2.5 × 8–16 m (~5 × 20–30 px), often in rows at depots, markets, highways. <code>bus</code>: ~2.5 × 12 m, usually uniform colour, in depots.
+<code>car</code>: only label cars if the chip is a parking lot or depot — <b>do not label every car on every road</b>. <code>aircraft</code>: obvious; box the whole plane including wings.</p>
+<table><tr>
+<td><img src="http://localhost:8081/guide/aircraft_apron.jpg" width="230"><br><small>Aircraft at IGI (May 2020)</small></td>
+<td><img src="http://localhost:8081/guide/trucks.jpg" width="230"><br><small>Truck-dense chip (Apr 2021)</small></td>
+</tr></table>
+<p>If many trucks are parked together in a yard, also draw a <code>truck_parking_hub</code> polygon around the yard.</p>
+
+<h3>4. Crematorium — label only when sure</h3>
+<p>At 0.5 m a crematorium is hard to spot without context. Clues: a <b>walled compound</b> (often by a river, canal or at a town edge) containing
+<b>rows of small open-sided sheds or raised platforms</b> (pyre bays, usually tin roofs), <b>dark ash/soot patches</b>, <b>stacks of firewood</b> in a yard, sometimes a
+single short chimney (electric/CNG furnace). Draw a <code>crematorium_site</code> polygon around the compound and <code>cremation_pyre</code> boxes on visibly burning or
+ash-covered platforms. <b>Don't search for them</b> — label only if you know one is there (e.g. Nigambodh Ghat on the Yamuna bank in the 2 Jun 2021 scene);
+we will seed known crematoria from maps later.</p>
+
+<h3>5. Other classes (draw if clearly present, otherwise skip)</h3>
+<ul>
+<li><code>construction_site</code> (polygon): bare graded earth, foundations, cranes, rebar, sand/cement piles inside a boundary.</li>
+<li><code>aggregate_stockpile</code> (polygon): large sand/gravel/coal heaps. <code>stone_crusher</code> (box): conveyor + crusher + grey dust heaps.</li>
+<li><code>chimney_stack</code> (box): industrial stacks — box the shadow+base; <code>cooling_tower</code>, <code>storage_tank</code>: round, obvious.</li>
+<li><code>open_burning</code> (polygon): black burn marks or smoke in fields/garbage heaps; <code>crop_burn_scar</code>: blackened whole fields (Oct–Nov).</li>
+<li><code>industrial_unit</code> (polygon): factory compounds (metal roofs, loading yards). <code>dairy_colony</code>/<code>cattle_shed</code>: rows of long sheds with cattle and dung heaps.</li>
+<li><code>bus_depot</code>, <code>rail_yard</code> (polygons): obvious from parked buses / many parallel tracks.</li>
+</ul>
+<p><b>Speed tip:</b> aim for ~1 minute per chip. Kilns first (scenes <code>20220424</code> and <code>20201218</code>), then landfill scenes, then the rest.</p>
+</div>

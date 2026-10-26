@@ -17,6 +17,7 @@
     <Label value="locomotive" background="#98df8a"/>
     <Label value="diesel_genset" background="#e377c2"/>
     <Label value="cattle_shed" background="#c49c94"/>
+    <Label value="open_tank_or_digester" background="#8c6d31"/>
   </RectangleLabels>
 
   <Header value="Area sources (polygon)"/>
@@ -32,11 +33,16 @@
     <Label value="crematorium_site" background="#fd8d3c"/>
     <Label value="industrial_unit" background="#843c39"/>
     <Label value="dairy_colony" background="#bd9e39"/>
+    <Label value="landfill_fire" background="#a50f15"/>
+    <Label value="power_plant" background="#525252"/>
+    <Label value="cement_or_hotmix_plant" background="#969696"/>
+    <Label value="wastewater_plant" background="#3182bd"/>
+    <Label value="fuel_station_or_depot" background="#e7ba52"/>
   </PolygonLabels>
 
   <Header value="Attributes of the selected region"/>
   <Choices name="kiln_type" toName="image" perRegion="true" whenLabelValue="brick_kiln" choice="single">
-    <Choice value="fcbtk_oval"/><Choice value="zigzag"/><Choice value="clamp"/><Choice value="unsure"/>
+    <Choice value="fcbtk_oval"/><Choice value="zigzag"/><Choice value="clamp"/><Choice value="unsure"/><Choice value="circular_cfcbk"/>
   </Choices>
   <Choices name="state" toName="image" perRegion="true" choice="single">
     <Choice value="active_plume"/><Choice value="active_no_plume"/><Choice value="idle"/><Choice value="abandoned"/><Choice value="unsure"/>

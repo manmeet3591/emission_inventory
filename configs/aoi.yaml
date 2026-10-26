@@ -9,6 +9,9 @@ aois:
   delhi_kiln_belt:
     bbox: [76.40, 28.00, 77.90, 29.30]
     grid_crs: EPSG:32643
+  lucknow_c3:
+    bbox: [80.758, 26.635, 80.910, 26.826]   # NRSC Cartosat-3 sample scene 266335021 (0.45 m, 15 Jan 2026)
+    grid_crs: EPSG:32644
   us_permian:
     bbox: [-104.0, 31.0, -101.5, 33.0]   # oil & gas pads, flares, compressors
     grid_crs: EPSG:5070
