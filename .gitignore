@@ -13,3 +13,4 @@ __pycache__/
 data/labelstudio/
 weights/
 data/yolo/
+data/derived/
